@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>portal.aigle.gov.cm</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <div class="conter">
+        <div class="guf">
+            <div class="dotes">
+               <i class="bi yoyo bi-dot"></i><i class="bi yoyo bi-dot"></i><i class="bi yoyo bi-dot"></i><i class="bi yoyo bi-dot"></i><i class="bi yoyo bi-dot"></i><i class="bi yoyo bi-dot"></i>
+            </div><br>
+            <div class="caroussel">
+                <div class="car-item">
+                    <h3>bienvenue sur AIGLE!</h3>
+                    <p>AIGLES met à votre disposition un portail web qui vous permet d'interagir avec votre administration.</p>
+                </div>
+                <div class="car-item">
+                    <h3>Votre 1ère connexion à AIGLES</h3>
+                    <p>Pour votre première connexion, AIGLES a préparé pour vous un identifiant (login) et un mot de passe initial comme suit :
+                       <br> - Votre login est votre matricule au nouveau format.
+                      <br>  - Votre mot de passe est votre matricule à l'ancien format, suivi d'un tiret, puis de votre année de naissance.
+                    </p>
+                       
+                        
+                 </div>
+                <div class="car-item">
+                    <h3> RÉCLAMATION</h3>
+                    <p>Pour toutes les réclamations, vous pouvez contacter notre service :
+                        - par téléphone au numéro vert 1522.
+                        - en vous présentant à la Maison des usagers, située à l'Esplanade du MINFOPRA.</p>
+                </div>
+                <div class="car-item">
+                    <h3>Mot de passe initial</h3>
+                    <p>Si vous êtes né(e) le 30/06/1985 et si votre matricule est 0123456X, alors votre mot de passe initial est 123456-X1985.
+                        Si votre matricule est 1123456X, alors votre mot de passe initial est X-1234561985.</p>
+                </div>
+                <div class="car-item">
+                    <h3> 
+                        Avancement automatique</h3>
+                    <p>es avancements automatiques de classe et d'échelon ont été débloqués. Ils sont fonction de votre dernière date d'échelon.</p>
+                </div>
+                <div class="car-item">
+                    <h3>Format du matricule</h3>
+                    <p>Si votre ancien matricule était au format 123456-X, il devient désormais 0123456X.
+                        Si votre ancien matricule était au format X-123456, il devient désormais 1123456X.</p>
+                </div>
+    
+             </div>
+        </div>
+        <script >
+            let item =document.querySelectorAll('.car-item')
+            console.log(item);
+            let dot = document.querySelectorAll('.yoyo')
+            console.log(dot);
+
+            var hok=0;
+            function lift(pas) {
+                if (pas<0) {
+                    pas = item.length-1
+                }
+                if (pas>item.length-1) {
+                    pas =  0
+                }
+                for (let i = 0; i < item.length; i++) {
+                    const element = item[i];
+                    element.style.display = "none";
+                }
+                for (let i = 0; i < dot.length; i++) {
+                    const element = dot[i];
+                    element.classList.remove("active")
+                }
+                item[pas].style.display = "inline-block"
+                dot[pas].classList.add("active")
+            }
+            for (let i = 0; i < item.length; i++) {
+                        const element = item[i];
+                        setTimeout(() => {
+                            lift(i)
+                            console.log(i);
+                            
+                        }, i*5000);  
+                    }
+                 setInterval(() => {
+                    for (let i = 0; i < item.length; i++) {
+                        const element = item[i];
+                        setTimeout(() => {
+                            lift(i)
+                            console.log(i);
+                            
+                        }, i*5000);  
+                    }
+                 }, item.length*5000);
+             
+               
+            
+        </script>
+
+        <div class="void">
+
+        </div>
+        <div class="form">
+            <form action="">
+                <h4>
+                    portail aigle
+                </h4>
+                <label for="ident">identifieant / login
+                </label><br>
+                <input type="text" name="ident" id="" placeholder="identifieant/login"><br>
+                <label for="pass">
+                    mot de passe / Password
+                </label><br>
+                <input type="text" name="pass" id="" placeholder="mot de passe/Password"><br>
+                <button>
+                    se connecter / sign in
+                </button>
+            </form>
+
+        </div>
+    </div>
+</body>
+</html>
